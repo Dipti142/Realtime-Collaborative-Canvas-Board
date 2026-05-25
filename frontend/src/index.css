@@ -1,4 +1,5 @@
-:root {
+ /* css file for global styles and variables */
+  :root {
   --bg-color: #f8f9fa;
   --toolbar-bg: rgba(255, 255, 255, 0.9);
   --accent-color: #4a90e2;
@@ -8,6 +9,7 @@
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   --radius: 12px;
 }
+
 
 body, html, #root {
   margin: 0;
