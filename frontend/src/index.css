@@ -1,0 +1,184 @@
+:root {
+  --bg-color: #f8f9fa;
+  --toolbar-bg: rgba(255, 255, 255, 0.9);
+  --accent-color: #4a90e2;
+  --accent-hover: #357abd;
+  --text-color: #333;
+  --border-color: #dee2e6;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --radius: 12px;
+}
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.canvas-container {
+  width: 100vw;
+  height: 100vh;
+  cursor: crosshair;
+}
+
+.toolbar-wrapper {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.toolbar {
+  background: var(--toolbar-bg);
+  backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: auto;
+  flex-wrap: wrap;
+  max-width: 90vw;
+}
+
+.toolbar-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.separator {
+  width: 1px;
+  height: 24px;
+  background: var(--border-color);
+}
+
+.tool-btn {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.tool-btn.active {
+  background: var(--accent-color);
+  color: white;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+.icon-btn:hover {
+  opacity: 1;
+}
+
+.color-picker-wrapper {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid var(--border-color);
+}
+
+.color-picker {
+  width: 150%;
+  height: 150%;
+  border: none;
+  padding: 0;
+  margin: -25%;
+  cursor: pointer;
+}
+
+.stroke-width-control {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.width-label {
+  font-size: 12px;
+  font-weight: 600;
+  width: 20px;
+  text-align: center;
+}
+
+.share-btn {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s ease;
+}
+
+.share-btn:hover {
+  background: var(--accent-hover);
+}
+
+@media (max-width: 600px) {
+  .toolbar {
+    padding: 6px 12px;
+    gap: 8px;
+  }
+  
+  .share-btn span {
+    display: none;
+  }
+  
+  .share-btn {
+    padding: 8px;
+  }
+  
+  .width-label {
+    display: none;
+  }
+  
+  .separator:nth-child(4),
+  .separator:nth-child(6) {
+    display: none;
+  }
+}
