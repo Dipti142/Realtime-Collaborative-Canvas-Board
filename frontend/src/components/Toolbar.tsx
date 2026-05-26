@@ -15,7 +15,7 @@ import {
 import { v4 as uuidv4 } from 'uuid';
 import { io } from 'socket.io-client';
 
-const SOCKET_URL = 'http://localhost:3001';
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:3001';
 
 const Toolbar: React.FC = () => {
   const {
@@ -33,8 +33,10 @@ const Toolbar: React.FC = () => {
   } = useStore();
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const socketRef = useRef<any>(null);
-
+  
+  // eslint-disable-next-line
   if (!socketRef.current) {
     socketRef.current = io(SOCKET_URL);
   }

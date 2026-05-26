@@ -5,8 +5,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { io, Socket } from 'socket.io-client';
 import type { CanvasElement } from '../types';
 
-const SOCKET_URL = 'http://localhost:3001';
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:3001';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ImageComponent = ({ src, x, y, width, height }: any) => {
   const [image, setImage] = useState<HTMLImageElement | null>(null);
 
